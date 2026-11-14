@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="t d">
+  <title id="t">Candidate screening before LDPC/OSD</title>
+  <desc id="d">A learned screen scores each synchronization candidate from four families of evidence and decides whether to spend LDPC/OSD decoding on it. The lower band shows how the screen is trained and evaluated.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+    <marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2937; }
+    .title { font-size: 30px; font-weight: 700; }
+    .sub { font-size: 16px; fill: #4b5563; }
+    .bt { font-size: 19px; font-weight: 700; }
+    .bd { font-size: 14px; fill: #4b5563; }
+    .q { font-size: 14px; font-style: italic; fill: #4b5563; }
+    .m { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14.5px; font-weight: 600; }
+    .d { font-size: 13px; fill: #4b5563; }
+    .lbl { font-size: 13px; font-weight: 700; }
+    .th { font-size: 16px; font-weight: 700; }
+    .cap { font-size: 14px; fill: #4b5563; }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; }
+    .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+    .conn { stroke: #94a3b8; stroke-width: 2; fill: none; }
+  </style>
+  <rect width="1600" height="920" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text class="title" x="60" y="52">Candidate screening before LDPC/OSD</text>
+  <text class="sub" x="60" y="84">A sync peak is only a possible signal. The screen scores each candidate from cheap evidence and decides whether LDPC/OSD is worth spending on it.</text>
+
+  <!-- Skip outcome -->
+  <rect x="985" y="112" width="200" height="44" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="d" x="1085" y="139" text-anchor="middle">skipped: no decode attempt</text>
+  <line x1="1085" y1="185" x2="1085" y2="160" stroke="#9ca3af" stroke-width="2" marker-end="url(#ahg)"/>
+  <text class="lbl" x="1097" y="177" style="fill:#6b7280">skip</text>
+
+  <!-- Pipeline -->
+  <rect class="box" x="60" y="185" width="250" height="100" rx="10"/>
+  <text class="bt" x="80" y="219">Sync search</text>
+  <text class="bd" x="80" y="246">find candidate peaks in</text>
+  <text class="bd" x="80" y="265">time and frequency</text>
+
+  <rect class="box" x="360" y="185" width="250" height="100" rx="10"/>
+  <text class="bt" x="380" y="219">Fine alignment</text>
+  <text class="bd" x="380" y="246">refine each candidate's</text>
+  <text class="bd" x="380" y="265">time and frequency</text>
+
+  <rect class="box" x="660" y="185" width="250" height="100" rx="10"/>
+  <text class="bt" x="680" y="219">Tone energies</text>
+  <text class="bd" x="680" y="246">energy of each of 8 tones</text>
+  <text class="bd" x="680" y="265">at each of 79 symbols</text>
+
+  <rect x="960" y="185" width="250" height="100" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+  <text class="bt" x="980" y="219">Candidate screen</text>
+  <text class="bd" x="980" y="246" style="fill:#1e3a8a">scores each candidate from</text>
+  <text class="bd" x="980" y="265" style="fill:#1e3a8a">cheap evidence</text>
+
+  <rect x="1260" y="185" width="250" height="100" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+  <text class="bt" x="1280" y="219">LDPC / OSD + CRC</text>
+  <text class="bd" x="1280" y="246" style="fill:#78350f">expensive decoding, then</text>
+  <text class="bd" x="1280" y="265" style="fill:#78350f">the CRC check</text>
+
+  <line x1="310" y1="235" x2="357" y2="235" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="610" y1="235" x2="657" y2="235" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="910" y1="235" x2="957" y2="235" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1210" y1="235" x2="1257" y2="235" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#ahb)"/>
+  <text class="lbl" x="1235" y="224" text-anchor="middle" style="fill:#1d4ed8">admit</text>
+
+  <!-- Bus from evidence families into the screen -->
+  <line class="conn" x1="230" y1="335" x2="1358" y2="335"/>
+  <line class="conn" x1="230" y1="335" x2="230" y2="370"/>
+  <line class="conn" x1="606" y1="335" x2="606" y2="370"/>
+  <line class="conn" x1="982" y1="335" x2="982" y2="370"/>
+  <line class="conn" x1="1358" y1="335" x2="1358" y2="370"/>
+  <line x1="1085" y1="335" x2="1085" y2="289" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#ahb)"/>
+  <text class="d" x="60" y="321">evidence computed for each candidate</text>
+
+  <!-- Card 1: where and how strong -->
+  <rect class="card" x="60" y="370" width="340" height="310" rx="10"/>
+  <line x1="78" y1="388" x2="78" y2="426" stroke="#0f766e" stroke-width="6" stroke-linecap="round"/>
+  <text class="bt" x="92" y="406">Where and how strong</text>
+  <text class="q" x="92" y="428">How strong is it, and where does it sit?</text>
+  <text class="m" x="78" y="466">snr, abs_dt, freq</text>
+  <text class="d" x="78" y="484">candidate strength, timing, frequency</text>
+  <text class="m" x="78" y="508">rrxdt, dfqso</text>
+  <text class="d" x="78" y="526">offsets from the frame start and</text>
+  <text class="d" x="78" y="543">from the receiver's QSO setting</text>
+
+  <!-- Card 2: fit to the sync pattern -->
+  <rect class="card" x="436" y="370" width="340" height="310" rx="10"/>
+  <line x1="454" y1="388" x2="454" y2="426" stroke="#4f46e5" stroke-width="6" stroke-linecap="round"/>
+  <text class="bt" x="468" y="406">Fit to the sync pattern</text>
+  <text class="q" x="468" y="428">Do the known sync tones show up?</text>
+  <text class="m" x="454" y="466">sync_quality</text>
+  <text class="d" x="454" y="484">coarse search strength</text>
+  <text class="m" x="454" y="508">nsync, nsync2</text>
+  <text class="d" x="454" y="526">strongest and runner-up tone matches</text>
+  <text class="m" x="454" y="550">nsync_score*, score_ratio*</text>
+  <text class="d" x="454" y="568">soft support, per block and pooled</text>
+  <text class="m" x="454" y="592">nsmax_rank_1..8</text>
+  <text class="d" x="454" y="610">where the expected tone ranks</text>
+  <text class="m" x="454" y="634">alt_tone_energy_skip</text>
+  <text class="d" x="454" y="652">derived from nsync and the ranks</text>
+
+  <!-- Card 3: message structure -->
+  <rect class="card" x="812" y="370" width="340" height="310" rx="10"/>
+  <line x1="830" y1="388" x2="830" y2="426" stroke="#be123c" stroke-width="6" stroke-linecap="round"/>
+  <text class="bt" x="844" y="406">Message structure</text>
+  <text class="q" x="844" y="428">Does the data part look like a CQ call?</text>
+  <text class="m" x="830" y="466">rscq</text>
+  <text class="d" x="830" y="484">agreement with the CQ tone pattern</text>
+  <text class="d" x="830" y="520">Evaluated only for candidates treated</text>
+  <text class="d" x="830" y="537">as possible CQ calls; zero otherwise.</text>
+
+  <!-- Card 4: peak shape -->
+  <rect class="card" x="1188" y="370" width="340" height="310" rx="10"/>
+  <line x1="1206" y1="388" x2="1206" y2="426" stroke="#4d7c0f" stroke-width="6" stroke-linecap="round"/>
+  <text class="bt" x="1220" y="406">Peak shape</text>
+  <text class="q" x="1220" y="428">Is the sync peak sharp and localized?</text>
+  <text class="m" x="1206" y="466">freq_curvature</text>
+  <text class="d" x="1206" y="484">sharpness of the peak along frequency</text>
+  <text class="m" x="1206" y="508">timing_curvature</text>
+  <text class="d" x="1206" y="526">sharpness of the peak along time</text>
+
+  <!-- Training and evaluation -->
+  <line class="conn" x1="60" y1="734" x2="1510" y2="734" stroke="#e2e8f0"/>
+  <text class="bt" x="60" y="768">Training and evaluation</text>
+
+  <rect class="box" x="60" y="788" width="270" height="92" rx="10"/>
+  <text class="th" x="78" y="813">Labeled candidates</text>
+  <text class="d" x="78" y="834">label 1: confirmed decode under the</text>
+  <text class="d" x="78" y="851">chosen decoder and labeling</text>
+  <text class="d" x="78" y="868">procedure; otherwise 0</text>
+
+  <rect class="box" x="355" y="788" width="270" height="92" rx="10"/>
+  <text class="th" x="373" y="813">Split by recording</text>
+  <text class="d" x="373" y="834">70% train, 15% validation, 15% test;</text>
+  <text class="d" x="373" y="851">no recording is split across</text>
+  <text class="d" x="373" y="868">the sets</text>
+
+  <rect class="box" x="650" y="788" width="270" height="92" rx="10"/>
+  <text class="th" x="668" y="813">Fit on train</text>
+  <text class="d" x="668" y="834">XGBoost, plus a logistic</text>
+  <text class="d" x="668" y="851">regression baseline</text>
+
+  <rect class="box" x="945" y="788" width="270" height="92" rx="10"/>
+  <text class="th" x="963" y="813">Threshold on validation</text>
+  <text class="d" x="963" y="834">admit the top 10% of candidates</text>
+  <text class="d" x="963" y="851">by score</text>
+
+  <rect class="box" x="1240" y="788" width="270" height="92" rx="10"/>
+  <text class="th" x="1258" y="813">Report on test</text>
+  <text class="d" x="1258" y="834">admission and recall of decode-</text>
+  <text class="d" x="1258" y="851">producing candidates at that</text>
+  <text class="d" x="1258" y="868">fixed threshold</text>
+
+  <line x1="330" y1="834" x2="352" y2="834" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="625" y1="834" x2="647" y2="834" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="920" y1="834" x2="942" y2="834" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1215" y1="834" x2="1237" y2="834" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+</svg>
