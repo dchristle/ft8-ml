@@ -58,8 +58,9 @@ increase validation admission above 10%.
 The figure shows a historical offline, single-pass evaluation on 382 held-out
 recordings. At 10% candidate admission, the XGBoost ranking retained about 99.8%
 of the labeled decode-producing candidates present in that evaluated candidate
-set. This is candidate-level recall, not overall decoder recall. The plotted
-jt9-style point is a comparison with a separately evaluated baseline.
+set. This is candidate-level recall, not overall decoder recall. The jt9-style
+point applies a replay of WSJT-X's pre-LDPC gate to the same held-out
+candidates.
 
 The curve is a retrospective ranking sweep on the held-out set, rather than a
 prospective evaluation of a threshold selected in advance. A point in a ranked
