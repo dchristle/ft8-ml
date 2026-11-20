@@ -5,11 +5,12 @@ decoding.
 
 - [`candidate-screening/`](candidate-screening/): gradient-boosted trees
   that rank synchronization candidates before LDPC decoding.
+  [FEATURES.md](candidate-screening/FEATURES.md) describes each feature
+  column.
+- [`neural-llr/`](neural-llr/): PyTorch soft demodulators that estimate
+  coded-bit LLRs, with training, proxy-metric evaluation, and ONNX export.
 
 ![Candidate screening before LDPC/OSD](candidate-screening/figures/candidate-screening-overview.png)
-
-See [FEATURES.md](candidate-screening/FEATURES.md) for what each column
-measures.
 
 Datasets, trained models, and decoder integration are not included.
 

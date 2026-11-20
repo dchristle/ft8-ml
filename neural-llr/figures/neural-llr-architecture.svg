@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">Neural soft-demodulation architecture</title>
+<desc id="desc">Stored real and imaginary spectrogram values enter the model directly. A Transformer considers the full symbol sequence and outputs 174 signed bit confidences for a fixed ordered-statistics decoder.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#64748b"/></marker></defs>
+<rect width="1200" height="340" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#1e293b">
+<text x="30" y="37" font-size="24" font-weight="bold">From signal context to bit confidence</text>
+<text x="30" y="65" font-size="15" fill="#64748b">The raw-complex input path used by the original models</text>
+<rect x="25" y="100" width="205" height="180" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="40" y="130" font-size="17" font-weight="bold">Stored signal patch</text>
+<text x="40" y="159" font-size="14">Real and imaginary</text>
+<text x="40" y="181" font-size="14">spectrogram values</text>
+<text x="40" y="203" font-size="14"></text>
+<text x="40" y="225" font-size="14">32 frequency bins</text>
+<text x="40" y="247" font-size="14">79 symbol times</text>
+<path d="M236,190 H254" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="262" y="100" width="205" height="180" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+<text x="277" y="130" font-size="17" font-weight="bold">Direct model input</text>
+<text x="277" y="159" font-size="14">Real and imaginary</text>
+<text x="277" y="181" font-size="14">channels retained</text>
+<text x="277" y="203" font-size="14"></text>
+<text x="277" y="225" font-size="14">Includes neighboring</text>
+<text x="277" y="247" font-size="14">frequency information</text>
+<path d="M473,190 H491" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="499" y="100" width="205" height="180" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="514" y="130" font-size="17" font-weight="bold">Transformer</text>
+<text x="514" y="159" font-size="14">Attention across</text>
+<text x="514" y="181" font-size="14">the symbol sequence</text>
+<text x="514" y="203" font-size="14"></text>
+<text x="514" y="225" font-size="14">Known sync symbols</text>
+<text x="514" y="247" font-size="14">remain as context</text>
+<path d="M710,190 H728" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="736" y="100" width="205" height="180" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+<text x="751" y="130" font-size="17" font-weight="bold">174 LLRs</text>
+<text x="751" y="159" font-size="14">One signed confidence</text>
+<text x="751" y="181" font-size="14">per coded bit</text>
+<text x="751" y="203" font-size="14"></text>
+<text x="751" y="225" font-size="14">Sign: favored bit</text>
+<text x="751" y="247" font-size="14">Magnitude: confidence</text>
+<path d="M947,190 H965" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="973" y="100" width="205" height="180" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="988" y="130" font-size="17" font-weight="bold">Message decoding</text>
+<text x="988" y="159" font-size="14">Fixed ordered-</text>
+<text x="988" y="181" font-size="14">statistics decoder</text>
+<text x="988" y="203" font-size="14"></text>
+<text x="988" y="225" font-size="14">Held unchanged</text>
+<text x="988" y="247" font-size="14">for the comparison</text>
+<text x="30" y="318" font-size="14" fill="#64748b">The network estimates soft evidence; the downstream decoder recovers the message.</text>
+</g></svg>
